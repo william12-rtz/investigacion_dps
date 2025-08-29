@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🛒 TechStore - Landing Page</title>
+    <title>🛒 TechStore - Carrito de Compras Premium</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
         <div class="hero-content">
             <h1>Encuentra Todo lo que Necesitas</h1>
             <p>Productos de calidad premium con los mejores precios del mercado</p>
-            <button class="cta-button">
+            <button class="cta-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
                 Ver Productos <i class="fas fa-arrow-down"></i>
             </button>
         </div>
@@ -48,14 +48,14 @@
         <section class="filter-section" id="productos">
             <h2><i class="fas fa-filter"></i> Nuestros Productos</h2>
             <div class="filter-container">
-                <select id="categoria-filter">
+                <select id="categoria-filter" onchange="filtrarPorCategoria()">
                     <option value="all">Todas las categorías</option>
                 </select>
                 <div class="view-options">
-                    <button class="view-btn active" id="grid-view">
+                    <button class="view-btn active" onclick="cambiarVista('grid')" id="grid-view">
                         <i class="fas fa-th-large"></i>
                     </button>
-                    <button class="view-btn" id="list-view">
+                    <button class="view-btn" onclick="cambiarVista('list')" id="list-view">
                         <i class="fas fa-list"></i>
                     </button>
                 </div>
@@ -88,7 +88,7 @@
                 <button id="seguir-comprando" class="continue-btn">
                     <i class="fas fa-undo"></i> Seguir Comprando
                 </button>
-                <button class="download-btn">
+                <button class="download-btn" onclick="imprimirTicket()">
                     <i class="fas fa-print"></i> Imprimir Ticket
                 </button>
             </div>
@@ -129,12 +129,20 @@
             <p>&copy; 2025 TechStore</p>
         </div>
     </footer>
-    <!-- JS con otras clases-->
+    
+    <!-- Scripts de configuración y utilidades -->
     <script src="assets/js/config.js"></script>
+    <script src="assets/js/utils/helpers.js"></script>
+    <script src="assets/js/utils/ticketGenerator.js"></script>
+    
+    <!-- Scripts de clases POO -->
+    <script src="assets/js/classes/Producto.js"></script>
     <script src="assets/js/classes/ItemCarrito.js"></script>
     <script src="assets/js/classes/CarritoCompras.js"></script>
-
-    <!--JS principal-->
+    <script src="assets/js/classes/NotificacionManager.js"></script>
+    <script src="assets/js/classes/TechStore.js"></script>
+    
+    <!-- Script principal de inicialización -->
     <script src="assets/js/app.js"></script>
 </body>
 </html>
